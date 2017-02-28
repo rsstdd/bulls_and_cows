@@ -6,15 +6,28 @@
 //  Copyright © 2017 Ross Todd. All rights reserved.
 //
 
-#include <iostream> // Including iostream
-using namespace std; // Avoid repition. Set the namespace. In this case "std"
+#include <iostream>
+#include <string>
+using namespace std;
 
 int main() {
-  
+
   constexpr int WORD_LENGTH = 5;
-  
+
   cout << "Welcome to Bulls and Cows, a fun word game"  << endl;
-  cout << "can you guess the " << WORD_LENGTH << " letter isogram I'm thinking of? \n";
+  cout << "can you guess the " << WORD_LENGTH << " letter isogram I'm thinking of?" << endl;
+  cout << "Enter your guess: ";
+
+  string Guess = "";
+
+  getline(cin, Guess);
+  cout << "You Guessed: " << Guess << "." << endl;
   
+  cout << "Enter another guess: ";
+  getline(cin, Guess);
+  cout << "You Guessed: " << Guess << "." << endl;
+  
+
+
   return 0;
 }
