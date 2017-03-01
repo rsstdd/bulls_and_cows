@@ -10,33 +10,35 @@
 using namespace std;
 
 void PrintIntro();
-void GetGuess();
+string GetGuessPrintBack();
 
 int main() {
-
   PrintIntro();
-  GetGuess();
-  
+
+  constexpr int NUMBER_TURNS = 5;
+  for (int i = 0; i <= NUMBER_TURNS; i++)
+  {
+    GetGuessPrintBack();
+    cout << endl;
+  }
+
   return 0;
 }
 
 void PrintIntro()
 {
-  // Introduce the game
   constexpr int WORD_LENGTH = 5;
-  
+
   cout << "Welcome to Bulls and Cows, a fun word game"  << endl;
   cout << "can you guess the " << WORD_LENGTH << " letter isogram I'm thinking of?" << endl;
-  cout << "Enter your guess: ";
   return;
 }
 
-void GetGuess()
-// Get guess
+string GetGuessPrintBack()
 {
+  cout << "Enter your Guess: " << endl;
   string Guess = "";
-  
   getline(cin, Guess);
   cout << "You Guessed: " << Guess << "." << endl;
-  return;
+  return Guess;
 }
