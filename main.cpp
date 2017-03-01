@@ -8,26 +8,41 @@
 
 #include <iostream>
 #include <string>
+
 using namespace std;
 
+void PrintIntro();
+void GetGuess();
+
+// Intro pt to Application
 int main() {
 
-  constexpr int WORD_LENGTH = 5;
+  PrintIntro();
 
+  GetGuess();
+  
+  GetGuess();
+
+  return 0;
+}
+
+void PrintIntro()
+{
+  // Introduce the game
+  constexpr int WORD_LENGTH = 5;
+  
   cout << "Welcome to Bulls and Cows, a fun word game"  << endl;
   cout << "can you guess the " << WORD_LENGTH << " letter isogram I'm thinking of?" << endl;
   cout << "Enter your guess: ";
+  return;
+}
 
+void GetGuess()
+// Get guess
+{
   string Guess = "";
-
+  
   getline(cin, Guess);
   cout << "You Guessed: " << Guess << "." << endl;
-  
-  cout << "Enter another guess: ";
-  getline(cin, Guess);
-  cout << "You Guessed: " << Guess << "." << endl;
-  
-
-
-  return 0;
+  return;
 }
