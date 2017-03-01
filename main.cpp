@@ -10,17 +10,15 @@
 using namespace std;
 
 void PrintIntro();
-string GetGuessPrintBack();
+void PlayGame();
+bool AskToPlayAgain();
 
 int main() {
+  
   PrintIntro();
-
-  constexpr int NUMBER_TURNS = 5;
-  for (int i = 0; i <= NUMBER_TURNS; i++)
-  {
-    GetGuessPrintBack();
-    cout << endl;
-  }
+  PlayGame();
+  
+  AskToPlayAgain();
 
   return 0;
 }
@@ -31,14 +29,38 @@ void PrintIntro()
 
   cout << "Welcome to Bulls and Cows, a fun word game"  << endl;
   cout << "can you guess the " << WORD_LENGTH << " letter isogram I'm thinking of?" << endl;
+  cout << endl;
   return;
 }
 
-string GetGuessPrintBack()
+string GetGuess()
 {
   cout << "Enter your Guess: " << endl;
   string Guess = "";
   getline(cin, Guess);
-  cout << "You Guessed: " << Guess << "." << endl;
+  cout << endl;
+  
   return Guess;
+}
+
+void PlayGame()
+{
+  constexpr int NUMBER_TURNS = 5;
+  for (int i = 0; i <= NUMBER_TURNS; i++)
+  {
+
+    GetGuess();
+    string Guess = GetGuess();
+    cout << "You Guessed: " << Guess << "." << endl;
+    cout << endl;
+  }
+}
+
+bool AskToPlayAgain()
+{
+  cout << "Do you want to play again?";
+  string Response = "";
+  getline(cin, Response);
+  
+  return (Response[0] == 'y') || Response[0] == 'Y';
 }
