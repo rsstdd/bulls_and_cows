@@ -1,9 +1,7 @@
-//
 //  main.cpp
 //  bulls_cows
 //
 //  Created by Ross Todd on 2/27/17.
-//  Copyright © 2017 Ross Todd. All rights reserved.
 //
 
 #include <iostream>
@@ -14,15 +12,11 @@ using namespace std;
 void PrintIntro();
 void GetGuess();
 
-// Intro pt to Application
 int main() {
 
   PrintIntro();
-
   GetGuess();
   
-  GetGuess();
-
   return 0;
 }
 
