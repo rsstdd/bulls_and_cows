@@ -1,21 +1,25 @@
 // Make sure that this is only imported once
-#pragma once
-#include<string>
+#include <string>
 
 class FBullCowGame {
 public:
+    FBullCowGame(); // Constructor
+    
+    int GetMaxTries() const;
+    int GetCurrentTry() const;
+    bool IsGameWon() const;
+
     void Reset(); // TODO make a more rich return value
-    int GetMaxTries();
-    int GetCurrentTry();
-    bool IsGameWon();
     bool CheckGuessValidity(std::string); // TODO make a more rich return value
 
-
+    // provide a method for counting b & c & incrementing try #
+    
 // Please try and ignore for now.
 private:
-    void setReset();
+    // See Constructor for initialization
     int MyCurrentTry;
-    int MyMaxTries;
+    int MyMaxTries; 
+
+    void setReset();
     bool IsIsogram(std::string);
 };
-
