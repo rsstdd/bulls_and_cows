@@ -1,7 +1,9 @@
 //  main.cpp
-//  bulls_cows
+//  Console Exe. that makes use of the BullCow Class
+//  This acts as the view in a MVC pattern
 //  Created by Ross Todd on 2/27/17.
 // ---------------------------------
+
 #include <iostream>
 #include <string>
 #include "FBullCowGame.cpp"
