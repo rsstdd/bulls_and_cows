@@ -1,5 +1,11 @@
 // Make sure that this is only imported once
+#pragma once
 #include <string>
+struct BullCowCount
+{
+    int Bulls = 0;
+    int Cows = 0;
+};
 
 class FBullCowGame {
 public:
@@ -11,14 +17,15 @@ public:
 
     void Reset(); // TODO make a more rich return value
     bool CheckGuessValidity(std::string); // TODO make a more rich return value
+    BullCowCount SubmitGuess(std::string);
 
     // provide a method for counting b & c & incrementing try #
-    
-// Please try and ignore for now.
+
 private:
     // See Constructor for initialization
     int MyCurrentTry;
     int MyMaxTries; 
+    std::string MyHiddenWord;
 
     void setReset();
     bool IsIsogram(std::string);
