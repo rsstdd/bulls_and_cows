@@ -7,12 +7,13 @@ struct BullCowCount
     int Cows = 0;
 };
 
-enum class EWordStatus 
+enum class EWordStatus // C++ 11 (Class/"Strong Enum")
 {
+    Invalid_Status,
     Ok,
     Not_Isogram,
-    Wrong_length,
-    Not_LoweCase
+    Wrong_Length,
+    Not_Lowecase
 };
 
 enum class EResetStatus 

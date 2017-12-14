@@ -38,30 +38,44 @@ void PrintIntro() {
     return;
 }
 
+// Loop continuously until givena valid guess
 std::string GetGuess() {
-    int CurrentTry = BCGame.GetCurrentTry();
-    std::cout<<"Guess: "<<CurrentTry<<std::endl;
-    std::string Guess = "";
-    std::getline(std::cin, Guess);
-    std::cout<<std::endl;
+    EWordStatus Status = EWordStatus::Invalid_Status;
+    do {
+        int CurrentTry = BCGame.GetCurrentTry();
+        std::cout << "Try: " << CurrentTry << ". Enter your guess: ";
+        std::string Guess = "";
+        std::getline(std::cin, Guess);
 
-    return Guess;
+        EWordStatus Status = BCGame.CheckGuessValidity(Guess);
+        switch(Status) {
+            case EWordStatus::Wrong_Length:
+                std::cout << "Please enter a " << BCGame.GetHiddenWordLength() <<" letter word." << std::endl;
+                break;
+            case EWordStatus::Not_Isogram:
+                std::cout << "Please enter a word without repeating letters."<< std::endl;
+                break;
+            case EWordStatus::Not_Lowecase:
+                std::cout << "Please enter a lowercase word."<< std::endl;
+                break;
+            default:
+                return Guess;
+        }
+    } while(Status == EWordStatus::Ok);
 }
+
 
 void PlayGame() {
     BCGame.Reset();
     int MaxTries = BCGame.GetMaxTries();
-
-    // TODO change from FOR to WHILE loop once validating tries
-    for (int i = 0; i <= MaxTries; i++) {
+   
+    for (int i = 0; i <= MaxTries; i++) {  // TODO change from FOR to WHILE loop once validating tries
         std::string Guess = GetGuess(); // TODO make loop checking valid
         BullCowCount BullCowCount = BCGame.SubmitGuess(Guess); // submit valid guess to the game
         std::cout << "Bulls = " << BullCowCount.Bulls; // print number of bulls and cows
-        std::cout << ". Cows = "<< BullCowCount.Cows << std::endl;
+        std::cout << ". Cows = "<< BullCowCount.Cows << "\n\n\n";
     }
-    
     // TODO Add a Game Summary
-    
 }
 
 bool AskToPlayAgain() {

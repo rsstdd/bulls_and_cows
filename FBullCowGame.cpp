@@ -13,9 +13,18 @@ bool FBullCowGame::IsGameWon() const
     return false; 
 }
 
-EWordStatus FBullCowGame::CheckGuessValidity(std::string) const 
+EWordStatus FBullCowGame::CheckGuessValidity(std::string Guess) const 
 { 
-    return EWordStatus::Ok; // TODO Make actual error
+    // if guess isn't isogram, 
+    if (false) {
+        return EWordStatus::Not_Isogram;
+    } else if (Guess.length() != GetHiddenWordLength()) {
+        return EWordStatus::Wrong_Length;
+    } else if (false) {
+        return EWordStatus::Not_Lowecase;
+    } else {
+        return EWordStatus::Ok; // TODO Make actual error
+    }
 }
 
 
