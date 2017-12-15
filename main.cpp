@@ -40,28 +40,28 @@ void PrintIntro() {
 
 // Loop continuously until givena valid guess
 std::string GetGuess() {
-    EWordStatus Status = EWordStatus::Invalid_Status;
+    CheckGuessValidity Status = CheckGuessValidity::Invalid_Status;
     do {
         int CurrentTry = BCGame.GetCurrentTry();
         std::cout << "Try: " << CurrentTry << ". Enter your guess: ";
         std::string Guess = "";
         std::getline(std::cin, Guess);
 
-        EWordStatus Status = BCGame.CheckGuessValidity(Guess);
+        Status = BCGame.CheckGuessValidity(Guess);
         switch(Status) {
-            case EWordStatus::Wrong_Length:
-                std::cout << "Please enter a " << BCGame.GetHiddenWordLength() <<" letter word." << std::endl;
+            case CheckGuessValidity::Wrong_Length:
+                std::cout << "Please enter a " << BCGame.GetHiddenWordLength() <<" letter word. \n\n";
                 break;
-            case EWordStatus::Not_Isogram:
+            case CheckGuessValidity::Not_Isogram:
                 std::cout << "Please enter a word without repeating letters."<< std::endl;
                 break;
-            case EWordStatus::Not_Lowecase:
+            case CheckGuessValidity::Not_Lowecase:
                 std::cout << "Please enter a lowercase word."<< std::endl;
                 break;
             default:
                 return Guess;
         }
-    } while(Status == EWordStatus::Ok);
+    } while(Status == CheckGuessValidity::Ok);
 }
 
 

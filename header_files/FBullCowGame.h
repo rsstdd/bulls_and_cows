@@ -7,7 +7,7 @@ struct BullCowCount
     int Cows = 0;
 };
 
-enum class EWordStatus // C++ 11 (Class/"Strong Enum")
+enum class CheckGuessValidity // C++ 11 (Class/"Strong Enum")
 {
     Invalid_Status,
     Ok,
@@ -30,7 +30,7 @@ public:
     int GetHiddenWordLength() const;
     int GetMaxTries() const;
     bool IsGameWon() const;
-    EWordStatus CheckGuessValidity(std::string) const; // TODO make a more rich return value
+    CheckGuessValidity CheckGuessValidity(std::string) const; // TODO make a more rich return value
 
     void Reset(); // TODO make a more rich return value
     BullCowCount SubmitGuess(std::string);

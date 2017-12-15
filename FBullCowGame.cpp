@@ -1,3 +1,4 @@
+
 #include "header_files/FBullCowGame.h"
 #include <iostream>
 
@@ -13,17 +14,17 @@ bool FBullCowGame::IsGameWon() const
     return false; 
 }
 
-EWordStatus FBullCowGame::CheckGuessValidity(std::string Guess) const 
+CheckGuessValidity FBullCowGame::CheckGuessValidity(std::string Guess) const 
 { 
     // if guess isn't isogram, 
     if (false) {
-        return EWordStatus::Not_Isogram;
+        return CheckGuessValidity::Not_Isogram;
     } else if (Guess.length() != GetHiddenWordLength()) {
-        return EWordStatus::Wrong_Length;
+        return CheckGuessValidity::Wrong_Length;
     } else if (false) {
-        return EWordStatus::Not_Lowecase;
+        return CheckGuessValidity::Not_Lowecase;
     } else {
-        return EWordStatus::Ok; // TODO Make actual error
+        return CheckGuessValidity::Ok; // TODO Make actual error
     }
 }
 
